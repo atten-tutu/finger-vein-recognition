@@ -289,7 +289,7 @@ class Client(object):
                 center_loss = self.center_net(output, target)
                 # loss = 0.4 * loss_ce + 0.005 * center_loss  # 合并损失项
                 # print(loss_cf)
-                loss = loss_cf + center_loss * 0.001
+                loss = loss_cf + center_loss * 0.003
                 # loss = loss_ce
                 loss.backward()
 

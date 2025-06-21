@@ -3,7 +3,7 @@ from torchvision import models
 from torchvision.models import MobileNet_V3_Large_Weights
 import torch.nn as nn
 from splicing_block.SHSA import SHSA
-from test_modify_models.special import SEW_MONSTER
+from test_modify_models.special import SHCA
 from test_modify_models.ema import EMA
 
 
@@ -17,9 +17,9 @@ class SHSA_NET(nn.Module):
         self.mobilenet.classifier = nn.Identity()  # 删除原有 classifier 层
 
         # 插入自注意力模块
-        self.sm_40 = SEW_MONSTER(40)
-        self.sm_80 = SEW_MONSTER(80)
-        self.sm_112 = SEW_MONSTER(160)
+        self.sm_40 = SHCA(40)
+        self.sm_80 = SHCA(80)
+        self.sm_112 = SHCA(160)
         # self.sm = SEW_MONSTER(960)
         # self.ema = EMA(960)
     def forward(self, x):

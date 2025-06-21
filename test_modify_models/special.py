@@ -6,9 +6,9 @@ from splicing_block.SHSA import SHSA
 from test_modify_models.CA import ChannelAggregationFFN
 
 
-class SEW_MONSTER(nn.Module):
+class SHCA(nn.Module):
     def __init__(self,dim):
-        super(SEW_MONSTER, self).__init__()
+        super(SHCA, self).__init__()
 
         # 加载 MobileNetV3 模型
         # 插入自注意力模块
@@ -44,7 +44,7 @@ class SEW_MONSTER(nn.Module):
         return x+res
 
 if __name__ == '__main__':
-    model =SEW_MONSTER(40)
+    model =SHCA(40)
     # 测试模型，传入示例输入数据
     input_tensor = torch.randn(1, 40, 28, 28)  # 示例输入，假设为224x224的RGB图像
     output = model(input_tensor)
