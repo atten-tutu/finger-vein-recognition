@@ -1,0 +1,11 @@
+{
+  "model_name" : "mobilenetv3",
+  "type" : "mobilenetv3",
+  "global_epochs" : 20,
+  "local_epochs" : 5,
+  "k" : 2,
+  "batch_size" : 32,
+  "lr" : 0.001,
+  "momentum" : 0.0001,
+  "lambda" : 0.1
+}
